@@ -17,9 +17,11 @@ import os
 load_dotenv()
 
 TOKEN = os.getenv('DISCORD_BOT_TOKEN')
-CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID'))
+CHANNEL_ID = os.getenv('DISCORD_CHANNEL_ID')
+#CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID'))
 SERVER_IP = os.getenv('SERVER_IP')
-SERVER_PORT = int(os.getenv('SERVER_PORT'))
+SERVER_PORT = os.getenv('SERVER_PORT')
+# SERVER_PORT = int(os.getenv('SERVER_PORT'))
 
 intents = discord.Intents.default()
 intents.message_content = True 
