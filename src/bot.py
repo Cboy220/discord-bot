@@ -25,6 +25,8 @@ intents = discord.Intents.default()
 intents.message_content = True 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+last_message = None  # Variable to store the last message sent
+
 def format_players(player_list):
     if not player_list:
         return "No Players Online."
@@ -72,10 +74,17 @@ def get_server_info():
 
 @tasks.loop(minutes=1)
 async def send_to_discord():
+    global last_message  # declareLastMessageComoGlobal
     channel = bot.get_channel(CHANNEL_ID)
     if channel:
         embed = get_server_info()
-        await channel.send(embed=embed)
+        # await channel.send(embed=embed)
+        if last_message:
+            try:
+                await last_message.delete()
+            except discord.errors.NotFound:
+                pass  # The message has already been deleted
+        last_message = await channel.send(embed=embed)
 
 @bot.event
 async def on_ready():
