@@ -1,0 +1,8 @@
+discord.py
+a2s
+datetime
+requests
+python-dotenv
+
+
+
