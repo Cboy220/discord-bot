@@ -1,8 +1,10 @@
+# This file lists all the dependencies that your bot needs
+# to run. You should not need to modify this file.
+# Instead, add your dependencies to the `requirements.txt` file.
+
 discord.py
 a2s
 datetime
 requests
 python-dotenv
-
-
-
+os
