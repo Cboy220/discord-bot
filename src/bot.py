@@ -93,4 +93,6 @@ async def on_ready():
     print(f'Bot connected as {bot.user}')
     send_to_discord.start()
 
+print(f"TOKEN encontrado: {TOKEN[:10]}...")  # Exibe apenas os primeiros 10 caracteres por segurança.
+
 bot.run(TOKEN)
